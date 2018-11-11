@@ -17,6 +17,10 @@
                     {{ Form::password('password', array('class' => 'form-control', 'autocomplete' => 'off')) }}    
                 </div>
                 <div class="col-auto">
+                    {{ Form::label('password_confirm', 'Powtórz hasło', ['class' => 'col-sm-10 control-label']) }}
+                    {{ Form::password('password_confirm', array('class' => 'form-control', 'autocomplete' => 'off')) }}    
+                </div>
+                <div class="col-auto">
                     {{ Form::label('first_name', 'Imię', ['class' => 'col-sm-10 control-label']) }}
                     {{ Form::text('first_name', '', array('class' => 'form-control', 'autocomplete' => 'off')) }}    
                 </div>
