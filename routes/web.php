@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('templates.main');
+});
+
+Route::get('/login', 'UsersController@login')->name('login');
+Route::get('/register', 'UsersController@register')->name('register');
+
+Route::prefix('users')->name('users.')->group(function () {
+    Route::post('/store', 'UsersController@store')->name('store');
 });
