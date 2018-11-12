@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -71,6 +71,12 @@
             @if (Route::has('main.login'))
                 <div class="top-right links">
                     @auth
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Dropdown Header</li>
+                            </ul>
+                        </li>
                         <a href="{{ route('auth.logout') }}">Wyloguj</a>
                     @else
                         <a href="{{ route('main.login') }}">Zaloguj</a>

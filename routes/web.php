@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('pages.main.index');
-})->middleware('auth');
+})->middleware('auth')->name('main_page');
 
 Route::prefix('users')->name('users.')->middleware('auth')->group(function () {
     Route::get('', 'UsersController@index')->name('index');
@@ -24,7 +24,12 @@ Route::prefix('')->name('main.')->group(function () {
     Route::get('/register', 'MainController@register')->name('register');
     Route::post('/store_user', 'MainController@store_user')->name('store_user');
 });
+
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('/login', 'AuthController@login')->name('login');
     Route::get('/logout', 'AuthController@logout')->name('logout');
+});
+
+Route::prefix('news')->name('news.')->middleware('auth')->group(function () {
+    Route::get('', 'NewsController@index')->name('index');
 });
