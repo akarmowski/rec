@@ -12,14 +12,20 @@
 */
 
 Route::get('/', function () {
-    //return view('layouts.main');
-    return redirect()->route('login');
+    return view('pages.main.index');
+})->middleware('auth');
+
+Route::prefix('users')->name('users.')->middleware('auth')->group(function () {
+    Route::get('', 'UsersController@index')->name('index');
 });
 
+Route::prefix('')->name('main.')->group(function () {
+    Route::get('/login', 'MainController@login')->name('login');
+    Route::get('/register', 'MainController@register')->name('register');
+    Route::post('/store_user', 'MainController@store_user')->name('store_user');
+});
 
-Route::get('/register', 'UsersController@register')->name('register');
-Route::get('/login', 'UsersController@login')->name('login');
-
-Route::prefix('users')->name('users.')->group(function () {
-    Route::post('/store', 'UsersController@store')->name('store');
+Route::prefix('auth')->name('auth.')->group(function () {
+    Route::post('/login', 'AuthController@login')->name('login');
+    Route::get('/logout', 'AuthController@logout')->name('logout');
 });
