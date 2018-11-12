@@ -24,6 +24,7 @@ Route::prefix('')->name('main.')->group(function () {
     Route::get('/register', 'MainController@register')->name('register');
     Route::post('/store_user', 'MainController@store_user')->name('store_user');
 });
+
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('/login', 'AuthController@login')->name('login');
     Route::get('/logout', 'AuthController@logout')->name('logout');
