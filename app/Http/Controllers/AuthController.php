@@ -13,13 +13,17 @@ class AuthController extends Controller
     {
         if(Auth::attempt($request->only('email', 'password')))
         {
-            return redirect()->intended('main');
+            return redirect()->intended('/');
+        }
+        else
+        {
+            return redirect()->back()->withErrors(['error' => 'Nieudana autoryzacja']);
         }
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('main.login');
     }
 }
