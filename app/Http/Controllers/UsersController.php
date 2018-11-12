@@ -13,6 +13,11 @@ class UsersController extends Controller
         # code...
     }
 
+    public function login()
+    {
+        return view('pages.users.login');
+    }
+
     public function register()
     {
         return view('pages.users.register');
