@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{ Form::open(array('url' => route('users.store'), 'method' => 'POST')) }}
+{{ Form::open(array('url' => route('main.store_user'), 'method' => 'POST')) }}
         <div class="card-header">
             Rejestracja
         </div>
