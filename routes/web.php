@@ -33,3 +33,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
 Route::prefix('news')->name('news.')->middleware('auth')->group(function () {
     Route::get('', 'NewsController@index')->name('index');
 });
+
+Route::get('my-theme', function () {
+    return view('layouts.main');
+});
