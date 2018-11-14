@@ -32,7 +32,10 @@ Route::prefix('auth')->name('auth.')->group(function () {
 
 Route::prefix('news')->name('news.')->middleware('auth')->group(function () {
     Route::get('', 'NewsController@index')->name('index');
-    Route::get('/add', 'NewsController@add')->name('add');
+    Route::get('/create', 'NewsController@create')->name('create');
+    Route::get('/edit/{id}', 'NewsController@edit')->name('edit')->where('id', '[0-9]+');
+    Route::get('/delete/{id}', 'NewsController@delete')->name('delete')->where('id', '[0-9]+');
+    Route::post('/store', 'NewsController@store')->name('store');
 });
 
 Route::get('my-theme', function () {

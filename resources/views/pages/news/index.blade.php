@@ -13,7 +13,7 @@
         <hr>
 
         <section class="actions">
-            <a href="{{ route('news.add') }}" class="btn btn-success">Dodaj News</a>
+            <a href="{{ route('news.create') }}" class="btn btn-success">Dodaj News</a>
         </section>
 
         <div class="table-responsive">
@@ -27,9 +27,25 @@
                         <th>Operacje</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach ($news as $item)
+                        <tr>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->created_at }}</td>
+                            <td>{{ $item->updated_at }}</td>
+                            <td>{{ $item->author->first_name }} {{ $item->author->last_name }}</td>
+                            <td>
+                                <a href="{{ route('news.edit', $item->id) }}" class="btn btn-primary">Edycja</a>
+                                <a href="{{ route('news.delete', $item->id) }}" class="btn btn-danger">Usuń</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
 
     </div>
+
+    <div class="text-center">{{ $news->links() }}</div>
 
 @endsection
