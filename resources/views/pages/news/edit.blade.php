@@ -9,12 +9,12 @@
 @section('page_content')
 
     <div class='col-lg-8 col-lg-offset-2'>
-        <h1><i class='fa fa-newspaper-o'></i> Dodawanie Newsa</h1>
+        <h1><i class='fa fa-newspaper-o'></i>Edycja Newsa</h1>
         
-        {{ Form::open(array('url' => route('news.store'), 'method' => 'POST')) }}
+        {{ Form::open(array('url' => route('news.update', $news['id']), 'method' => 'POST')) }}
             <div class='form-group'>
                 {{ Form::label('name', 'Tytuł') }}
-                {{ Form::text('name', null, array('class' => 'form-control')) }}
+                {{ Form::text('name', $news['name'], array('class' => 'form-control')) }}
             </div>
             <div class='form-group'>
                 {{ Form::label('is_active', 'Aktywny') }}
@@ -22,12 +22,12 @@
                     '' => 'Wybierz',
                     1 => 'Tak',
                     0 => 'Nie',
-                    ], null, ['class' => 'form-control']) 
+                    ], $news['is_active'], ['class' => 'form-control']) 
                 }}
             </div>
             <div class='form-group'>
                 {{ Form::label('description', 'Treść') }}
-                {{ Form::textarea('description', null, array('class' => 'form-control')) }}
+                {{ Form::textarea('description', $news['description'], array('class' => 'form-control')) }}
             </div>
             {{ Form::submit('Dodaj', array('class' => 'btn btn-primary')) }}
         {{ Form::close() }}
