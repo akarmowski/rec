@@ -32,6 +32,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
 
 Route::prefix('news')->name('news.')->middleware('auth')->group(function () {
     Route::get('', 'NewsController@index')->name('index');
+    Route::get('/add', 'NewsController@add')->name('add');
 });
 
 Route::get('my-theme', function () {
