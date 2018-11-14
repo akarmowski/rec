@@ -2,11 +2,7 @@
 
 @section('title', 'News')
 
-@section('content_header')
-
-@endsection
-
-@section('content')
+@section('page_content')
 
     <div class="col-lg-10 col-lg-offset-1">
         <h1><i class="fa fa-newspaper-o"></i> Zarządzanie newsami</h1>
@@ -24,6 +20,7 @@
                         <th>Data dodania</th>
                         <th>Data aktualizacji</th>
                         <th>Autor</th>
+                        <th>Aktywny</th>
                         <th>Operacje</th>
                     </tr>
                 </thead>
@@ -34,6 +31,7 @@
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->updated_at }}</td>
                             <td>{{ $item->author->first_name }} {{ $item->author->last_name }}</td>
+                            <td>@if($item->is_active == 1) Tak @elseif($item->is_active == 0) Nie @endif</td>
                             <td>
                                 <a href="{{ route('news.edit', $item->id) }}" class="btn btn-primary">Edycja</a>
                                 <a href="{{ route('news.delete', $item->id) }}" class="btn btn-danger">Usuń</a>

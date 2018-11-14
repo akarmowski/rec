@@ -12,7 +12,8 @@
 
 @section('content')
 
-    <p>Welcome to this beautiful admin panel - HDTuto.com.</p>
+    @include ('components.messages')
+    @yield('page_content')
 
 @stop
 
