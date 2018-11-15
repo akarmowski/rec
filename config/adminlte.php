@@ -114,6 +114,12 @@ return [
             'url'         => 'news',
             'icon'        => 'newspaper-o',
         ],
+        'ADMINISTRACJA',
+        [
+            'text'        => 'Użytkownicy',
+            'url'         => 'users',
+            'icon'        => 'users',
+        ],
         // 'ACCOUNT SETTINGS',
         // [
         //     'text' => 'Profile',

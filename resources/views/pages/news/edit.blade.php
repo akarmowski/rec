@@ -8,6 +8,7 @@
 
 @section('page_content')
 
+<div class="row">
     <div class='col-lg-8 col-lg-offset-2'>
         <h1><i class='fa fa-newspaper-o'></i>Edycja Newsa</h1>
         
@@ -29,13 +30,13 @@
                 {{ Form::label('description', 'Treść') }}
                 {{ Form::textarea('description', $news['description'], array('class' => 'form-control')) }}
             </div>
-            {{ Form::submit('Dodaj', array('class' => 'btn btn-primary')) }}
+            {{ Form::submit('Zapisz', array('class' => 'btn btn-primary')) }}
         {{ Form::close() }}
         
         <hr>
         <div class="text-left"><a href="{{ URL::previous() }}" class="btn btn-default">Wstecz</a></div>
     </div>
-
+</div>
 @endsection
 
 @section('css')
