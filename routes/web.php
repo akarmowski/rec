@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Route::prefix('users')->name('users.')->middleware('auth')->group(function () {
     Route::get('', 'UsersController@index')->name('index');
+    Route::get('/create', 'UsersController@create')->name('create');
+    Route::get('/edit/{id}', 'UsersController@edit')->name('edit')->where('id', '[0-9]+');
+    Route::get('/delete/{id}', 'UsersController@delete')->name('delete')->where('id', '[0-9]+');
+    Route::post('/store', 'UsersController@store')->name('store');
+    Route::post('/update/{id}', 'UsersController@update')->name('update');
 });
 
 Route::prefix('')->name('main.')->group(function () {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\Users\RegisterUserRequest;
+use App\Http\Requests\Main\RegisterUserRequest;
 use App\Models\Users;
 
 class MainController extends Controller
@@ -25,7 +25,7 @@ class MainController extends Controller
 
     public function store_user(RegisterUserRequest $request)
     {
-        Users::create(array_merge(['is_active' => 1], $request->only('email', 'password', 'first_name', 'last_name', 'gender')));
+        Users::create(array_merge(['is_active' => 0], $request->only('email', 'password', 'first_name', 'last_name', 'gender')));
         return back()->with('message', 'Użytkownik został założony');
     }
 }

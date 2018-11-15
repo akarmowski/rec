@@ -7,7 +7,7 @@
 @endsection
 
 @section('page_content')
-
+<div class="row">
     <div class='col-lg-8 col-lg-offset-2'>
         <h1><i class='fa fa-newspaper-o'></i> Dodawanie Newsa</h1>
         
@@ -18,11 +18,10 @@
             </div>
             <div class='form-group'>
                 {{ Form::label('is_active', 'Aktywny') }}
-                {{ Form::select('is_active', [
-                    '' => 'Wybierz',
+                {{ Form::select('is_active', [,
                     1 => 'Tak',
                     0 => 'Nie',
-                    ], null, ['class' => 'form-control']) 
+                    ], null, ['class' => 'form-control', 'placeholder' => 'Aktywny']) 
                 }}
             </div>
             <div class='form-group'>
@@ -35,7 +34,7 @@
         <hr>
         <div class="text-left"><a href="{{ URL::previous() }}" class="btn btn-default">Wstecz</a></div>
     </div>
-
+</div>
 @endsection
 
 @section('css')
