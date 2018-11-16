@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($news as $item)
+                @forelse ($news as $item)
                     <tr>
                         <td>{{ $item->name }}</td>
                         <td>{{ strip_tags($item->description) }}</td>
@@ -30,7 +30,11 @@
                         <td>{{ $item->updated_at }}</td>
                         <td>{{ $item->author->first_name }} {{ $item->author->last_name }}</td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center">Brak danych</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

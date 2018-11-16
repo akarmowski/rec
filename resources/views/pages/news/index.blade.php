@@ -25,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($news as $item)
+                    @forelse ($news as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->created_at }}</td>
@@ -37,7 +37,11 @@
                                 <a href="{{ route('news.delete', $item->id) }}" class="btn btn-danger">Usuń</a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="6" class="text-center">Brak danych</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
