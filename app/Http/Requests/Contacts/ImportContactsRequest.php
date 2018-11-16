@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\News;
+namespace App\Http\Requests\Contacts;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateNewsRequest extends FormRequest
+class ImportContactsRequest extends FormRequest
 {
     public function __construct()
     {
@@ -29,9 +29,7 @@ class CreateNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'is_active' => 'required|in:0,1',
-            'description' => 'required|string',
+            'file' => 'required|mimeTypes:text/csv,text/plain,text/x-csv,application/vnd.ms-excel,application/csv,application/x-csv,text/comma-separated-values,text/x-comma-separated-values,text/tab-separated-values',
         ];
     }
 }

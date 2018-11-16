@@ -6,6 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreateUserRequest extends FormRequest
 {
+    public function __construct()
+    {
+        \App::setLocale('pl');
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
