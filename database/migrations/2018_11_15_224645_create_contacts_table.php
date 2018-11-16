@@ -19,7 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('last_name', 255);
             $table->string('email', 255);
             $table->string('country', 255);
-            $table->enum('gender', ['man', 'woman']);
+            $table->string('gender', 255);
             $table->string('ip_address', 255);
             $table->timestamps();
         });

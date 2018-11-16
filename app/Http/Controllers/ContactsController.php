@@ -42,8 +42,6 @@ class ContactsController extends Controller
                     }
                 }
 
-                $num = count($data);
-
                 if($data [1] != 'first_name' && $data [2] != 'last_name' && $row > 1)
                 {
                     $num_file++;

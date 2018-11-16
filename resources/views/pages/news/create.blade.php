@@ -25,7 +25,7 @@
                 }}
             </div>
             <div class='form-group'>
-                {{ Form::label('description', 'Treść') }}
+                {{ Form::label('description', 'Opis') }}
                 {{ Form::textarea('description', null, array('class' => 'form-control')) }}
             </div>
             {{ Form::submit('Dodaj', array('class' => 'btn btn-primary')) }}
