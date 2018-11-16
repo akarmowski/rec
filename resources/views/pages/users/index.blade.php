@@ -3,7 +3,7 @@
 @section('page_content')
 
 <div class="col-lg-10 col-lg-offset-1">
-    <h1><i class="fa fa-newspaper-o"></i> Zarządzanie użytkownikami</h1>
+    <h1><i class="fa fa-users"></i> Zarządzanie użytkownikami</h1>
     <hr>
 
     <section class="actions">
@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                @forelse ($users as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->email }}</td>
@@ -36,7 +36,11 @@
                             <a href="{{ route('users.edit', $item->id) }}" class="btn btn-primary">Edycja</a>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="7" class="text-center">Brak danych</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
