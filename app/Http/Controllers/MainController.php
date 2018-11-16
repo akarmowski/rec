@@ -26,6 +26,6 @@ class MainController extends Controller
     public function store_user(RegisterUserRequest $request)
     {
         Users::create(array_merge(['is_active' => 0], $request->only('email', 'password', 'first_name', 'last_name', 'gender')));
-        return back()->with('message', 'Użytkownik został założony');
+        return back()->with('message', 'Rejestracja przebiegła prawidłowo. Użytkownik musi zostać aktywowany przez Administratora');
     }
 }

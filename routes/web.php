@@ -44,6 +44,8 @@ Route::prefix('news')->name('news.')->middleware('auth')->group(function () {
     Route::post('/update/{id}', 'NewsController@update')->name('update');
 });
 
-Route::get('my-theme', function () {
-    return view('layouts.main');
+Route::prefix('contacts')->name('contacts.')->middleware('auth')->group(function () {
+    Route::get('', 'ContactsController@index')->name('index');
+    Route::get('/import', 'ContactsController@import')->name('import');
+    Route::post('/store_import', 'ContactsController@store_import')->name('store_import');
 });

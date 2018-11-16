@@ -114,6 +114,11 @@ return [
             'url'         => 'news',
             'icon'        => 'newspaper-o',
         ],
+        [
+            'text'        => 'Kontakty',
+            'url'         => 'contacts',
+            'icon'        => 'envelope',
+        ],
         'ADMINISTRACJA',
         [
             'text'        => 'Użytkownicy',
