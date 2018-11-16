@@ -11,6 +11,9 @@
 
         <link href="css/app.css" rel="stylesheet" type="text/css">
         <script src="js/app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
 
         <!-- Styles -->
         <style>
@@ -67,16 +70,12 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
             @if (Route::has('main.login'))
                 <div class="top-right links">
+                <a href="{{ route('main.index_news') }}">News</a>
+                <a href="{{ route('main.index_statistics') }}">Statystyki</a>
                     @auth
-                        <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">News</a>
-                            <ul class="dropdown-menu">
-                                <li class="header">Dropdown Header</li>
-                            </ul>
-                        </li>
                         <a href="{{ route('auth.logout') }}">Wyloguj</a>
                     @else
                         <a href="{{ route('main.login') }}">Zaloguj</a>
@@ -88,7 +87,7 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="container">
                 @include ('components.messages')
                 @yield ('content')
             </div>

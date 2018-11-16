@@ -27,7 +27,7 @@
                 }}
             </div>
             <div class='form-group'>
-                {{ Form::label('description', 'Treść') }}
+                {{ Form::label('description', 'Opis') }}
                 {{ Form::textarea('description', $news['description'], array('class' => 'form-control')) }}
             </div>
             {{ Form::submit('Zapisz', array('class' => 'btn btn-primary')) }}
